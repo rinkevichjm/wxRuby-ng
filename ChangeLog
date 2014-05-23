@@ -1,0 +1,338 @@
+2009-09-08 18:14  brokentoy
+
+	* doc/textile/glcanvas.txtl, swig/classes/GLContext.i: Removed
+	  GLContext class b/c not useful w/o cross-platform support in 2.8
+
+2009-09-08 17:23  chauk-mean
+
+	* doc/textile/glcanvas.txtl: Small fix to the documentation of
+	  GLCanvas.
+
+2009-09-07 21:16  chauk-mean
+
+	* doc/textile/glcanvas.txtl, lib/wx/keyword_defs.rb,
+	  samples/opengl/cube.rb, samples/opengl/cube_anim_lighting.rb,
+	  swig/classes/include/wxGLCanvas.h: - Fix unavailable (but
+	  recommended) GLCanvas constructor for OS X.
+	  - Add support for keyword arguments to the preferred constructor
+	  at the moment.
+	  - Fix OpenGL samples accordingly.
+
+2009-09-07 07:34  brokentoy
+
+	* doc/textile/listctrl.txtl: Remove broken doc link to listctrl
+	  sample
+
+2009-09-06 22:06  brokentoy
+
+	* rake/rakemingw.rb, rake/rakemswin.rb: GLContext should also be
+	  skipped if OpenGL is not available
+
+2009-09-04 18:11  brokentoy
+
+	* swig/classes/include/wxAuiManager.h: Fix
+	  AuiManager#load_pane_info by correcting wxString to wxString&
+	  (BUG:25775)
+
+2009-09-04 16:28  brokentoy
+
+	* lib/wx/classes/splitterwindow.rb: Add aliases for
+	  SplitterWindow#get_window_x that are in line with the
+	  documentation
+
+2009-09-04 16:21  brokentoy
+
+	* doc/textile/index.txtl, doc/textile/listctrl.txtl,
+	  doc/textile/listview.txtl: Omit references to not-ported class
+	  ListView
+
+2009-09-04 16:14  brokentoy
+
+	* swig/classes/HtmlWindow.i, swig/classes/include/wxHtmlWindow.h:
+	  Fix string arguments to HtmlWindow#set_fonts which were wrongly
+	  marked
+	  as wxString not wxString& (BUG:26693]. Also fix third 'sizes'
+	  argument to this method.
+
+2009-09-04 14:48  brokentoy
+
+	* swig/Functions.i: Avoid passing non-literal string to wxLogXXX in
+	  log_xxx functions, fixing compiler error and possible security
+	  risk (BUG:26298)
+
+2009-09-04 13:33  brokentoy
+
+	* swig/classes/include/wxListbook.h: Listbook now inherits
+	  correctly from BookCtrlBase
+
+2009-09-04 12:53  brokentoy
+
+	* swig/classes/BookCtrlBase.i,
+	  swig/classes/include/wxBookCtrlBase.h, swig/shared/bookctrls.i:
+	  Add missing 'public' statement to BookCtrlBase header, fixing
+	  missing
+	  methods in derived classes (Pascal Hurni)
+
+2009-09-04 12:24  brokentoy
+
+	* swig/classes/ListCtrl.i, swig/classes/TreeCtrl.i: Do standard
+	  wxWindow marking in custom mark routines for Tree/ListCtrl, to
+	  protect things like DropTarget (BUG:26062)
+
+2009-09-04 12:11  brokentoy
+
+	* swig/classes/AuiDefaultDockArt.i, swig/classes/AuiDockArt.i,
+	  swig/classes/AuiManager.i, swig/classes/AuiManagerEvent.i,
+	  swig/classes/AuiNotebook.i, swig/classes/AuiNotebookEvent.i,
+	  swig/classes/AuiPaneInfo.i, swig/classes/Event.i: Workaround for
+	  incompatibility between Wx's auibar.h header and recent versions
+	  of OS g++
+
+2009-07-14 13:21  chauk-mean
+
+	* lib/wx/classes/sizer.rb, lib/wx/classes/toolbar.rb: Improve
+	  backtrace for keyword arguments error.
+
+2009-07-14 11:54  chauk-mean
+
+	* lib/wx/helpers.rb, lib/wx/keyword_ctors.rb: Error handling
+	  improvement : keyword arguments are now checked and
+	  invalid ones are reported.
+
+2009-07-14 09:10  chauk-mean
+
+	* samples/bigdemo/ShapedWindow.rbw,
+	  samples/bigdemo/wxStaticBitmap.rbw: - Fix incorrect image file in
+	  bigdemo's ShapeWindow
+	  - Modernize the coding style of bigdemo's ShapeWindow and
+	  wxStaticBitmap
+
+2009-07-14 09:06  chauk-mean
+
+	* doc/textile/staticbitmap.txtl: Various fixes to StaticBitmap
+	  documentation.
+
+2009-07-08 22:01  chauk-mean
+
+	* rake/rakewx.rb, swig/fixmodule.rb, swig/fixplatform.rb: - Use the
+	  correct ruby executable corresponding to the launched rake
+	  (not always 'ruby')
+	  - Fix remaining files for ruby-1.9.2 support (they were always
+	  launched
+	  by 'ruby' which happens to be not the ruby-1.9.2 executable in my
+	  case)
+
+2009-07-08 18:44  chauk-mean
+
+	* rake/rakeconfigure.rb, rake/rakelinux.rb, rake/rakemacosx.rb,
+	  rake/rakemingw.rb, rake/rakemswin.rb, rake/rakeversion.rb,
+	  rakefile: Add support for upcoming ruby-1.9.2 which removes the
+	  current directory
+	  from the load path for security reason.
+
+2009-07-06 20:51  chauk-mean
+
+	* swig/classes/EvtHandler.i: - Dummy commit to fix previous log :
+	  - Support for ruby-1.9.2 which removes STR2CSTR macro.
+	  STR2CSTR is obsolete since ruby-1.7 and is replaced by
+	  StringValuePtr.
+	  - Fix invalid 'if condition' for unknown event handler defined as
+	  a symbol.
+
+2009-07-06 19:39  chauk-mean
+
+	* swig/classes/EvtHandler.i: - Support for ruby-1.9.2 which removes
+	  STR2CSTR macro.
+	  STR2CSTR is obsolete since ruby-1.8.7 and is replaced by
+	  StringValuePtr.
+	  - Fix invalid 'if condition' for unknown event handler defined as
+	  a symbol.
+
+2009-06-18 22:36  chauk-mean
+
+	* doc/textile/image.txtl, lib/wx/classes/image.rb,
+	  samples/drawing/maths_images.rb,
+	  samples/drawing/rmagic_bitmap_image.rb, swig/classes/Image.i,
+	  swig/classes/include/wxImage.h: - Fix Image#get_alpha and
+	  set_alpha overloading issue by renaming
+	  the raw data version of these methods as respectively
+	  get_alpha_data and set_alpha_data.
+	  - Rename Image#get_data and set_data as resp. get_rgb_data and
+	  set_rgb_data
+	  for consistency with above methods and set_rgb method.
+	  get_data and set_data are still available through aliases for
+	  backward
+	  compatibility.
+	  - update drawing samples accordingly
+	  - update Image documentation accordingly + various fixes
+
+2009-06-13 12:05  chauk-mean
+
+	* swig/classes/include/parents.rb: Add missing definition of
+	  wxGLContext in the parents.rb file.
+	  It seems to be important for SWIG.
+
+2009-06-13 11:07  chauk-mean
+
+	* samples/drawing/rmagic_bitmap_image.rb,
+	  swig/classes/include/wxImage.h: - Fix SWIG issue with
+	  Image.SetAlpha :
+	  The overloaded SetAlpha seems to cause a problem with the typemap
+	  used by the first SetAlpha method. At the moment, hide the
+	  overloaded
+	  method.
+	  - Add a RMagick sample demonstrating the direct conversion of
+	  a RMagick image to a wxRuby image.
+
+2009-06-09 16:39  chauk-mean
+
+	* lib/wx/classes/evthandler.rb, lib/wx/classes/timer.rb,
+	  samples/opengl/cube_anim_lighting.rb: - Fix missing evt_timer
+	  behaviour wrt other evt_xx methods :
+	  a Timer object can now be supplied directly as expected.
+	  - Use this behaviour in samples/opengl/cube_anim_lighting.rb
+
+2009-05-21 23:30  chauk-mean
+
+	* doc/textile/glcanvas.txtl, doc/textile/glcontext.txtl: Update and
+	  fix to GLCanvas and GLContext documentation.
+
+2009-05-19 23:04  chauk-mean
+
+	* samples/opengl/cube.rb, samples/opengl/cube_anim_lighting.rb:
+	  Improvements to OpenGL samples :
+	  - Use of the recommended GLCanvas initializer in the basic cube
+	  sample
+	  - Illustrate the use of keyword arguments for the GLCanvas
+	  initializer and
+	  add another axis for the animation in the animated cube sample
+
+2009-05-19 22:58  chauk-mean
+
+	* lib/wx/keyword_defs.rb, swig/classes/GLCanvas.i,
+	  swig/classes/GLContext.i, swig/classes/include/wxGLCanvas.h,
+	  swig/classes/include/wxGLContext.h: Add missing recommended
+	  initializer for GLCanvas and associated GLContext class.
+	  Add keyword arguments support to the recommended initializer of
+	  GLCanvas.
+
+2009-05-15 18:58  chauk-mean
+
+	* samples/opengl/cube_anim_lighting.rb: Add an OpenGL sample with
+	  animation and lighting.
+
+2009-05-14 22:56  brokentoy
+
+	* doc/textile/datepickerctrl.txtl, lib/wx/keyword_defs.rb,
+	  samples/calendar/calendar.rb, swig/classes/DatePickerCtrl.i,
+	  swig/shared/datetime.i: Several fixes to wxDateTime handling (use
+	  Ruby DateTime where needed) and CalendarCtrl (ALLOW_NONE,
+	  get_range), plus sample enhancements (Pascal Hurni) (BUG:25749)
+
+2009-05-14 22:30  brokentoy
+
+	* lib/wx/accessors.rb: Ruby-style accessors method_missing should
+	  not intrude on subclass
+	  implementations (Pascal Hurni) (BUG:25783)
+
+2009-05-14 22:23  brokentoy
+
+	* lib/wx/classes/checklistbox.rb: CheckListBox#append should return
+	  index of new item (Michael Satterwhite) (BUG:25907)
+
+2009-05-14 13:22  brokentoy
+
+	* lib/wx/classes/listctrl.rb: Prevent hangs / endless loops with
+	  ListCtrl#get_selections on MSW (Phil Puccio)
+
+2009-04-19 23:07  brokentoy
+
+	* samples/bigdemo/bigdemo.rb, samples/bigdemo/icons/ruby.png,
+	  samples/bigdemo/icons/wxruby-128x128.png: In bigdemo, use a
+	  wxRuby taskbar icon that has transparency correct on OS X
+
+2009-04-16 16:51  brokentoy
+
+	* rakefile: SWIG 1.3.39 doesn't work with wxRuby 2.0; raise error
+	  if this version installed
+
+2009-03-30 19:21  brokentoy
+
+	* doc/textile/radiobox.txtl: Fix "major_dimensions" and "n"
+	  arguments in Wx::RadioBox ctor documentation
+
+2009-03-29 15:38  chauk-mean
+
+	* samples/opengl/cube.rb: Improves OpenGL sample :
+	  - makes the keys directly usable
+	  - add an indication for using keys to rotate the cube
+	  - arrange colors to make the cube more appealing
+	  - set the initial rotations to make it 3D immediately
+
+2009-03-20 23:33  brokentoy
+
+	* lib/wx/keyword_defs.rb, swig/classes/include/wxFileDialog.h: Add
+	  documented but missing Size and Name args to FileDialog ctor;
+	  update keyword defs
+
+2009-03-20 22:51  chauk-mean
+
+	* samples/drawing/wxruby-logo.png: Remove old wxruby logo image
+	  file.
+
+2009-03-20 22:39  chauk-mean
+
+	* rake/rakepackage.rb: Add art and doc/lib folders to the
+	  packaging.
+
+2009-03-20 22:16  chauk-mean
+
+	* lib/wx/keyword_defs.rb: Remove invalid size and name arguments in
+	  FileDialog keyword
+	  constructor.
+
+2009-03-14 10:26  chauk-mean
+
+	* samples/drawing/bitmap.rb, samples/minimal/minimal.rb: Use of
+	  wxRuby logo images in minimal and bitmap samples.
+
+2009-03-14 10:24  chauk-mean
+
+	* art, art/wxruby-128x128.png, art/wxruby-256x256.png,
+	  art/wxruby-64x64.png, art/wxruby.png: Add art folder with wxRuby
+	  logo image files.
+
+2009-03-12 12:27  brokentoy
+
+	* rake/rakepackage.rb: Remove call to deprecated Gem.manage_gems
+
+2009-03-11 20:14  brokentoy
+
+	* lib/wx/classes/listctrl.rb: Fix ListCtrl#get_selections so it
+	  works properly on Windows too
+
+2009-03-10 18:26  brokentoy
+
+	* doc/textile/focusevent.txtl, swig/classes/include/wxFocusEvent.h:
+	  Add missing but documented FocusEvent#get_window and #set_window
+
+2009-03-06 06:11  brokentoy
+
+	* lib/wx/keyword_defs.rb, swig/RubyConstants.i,
+	  swig/classes/DirDialog.i: Add missing DirDialog styles, use
+	  default in keyword ctor
+
+2009-03-06 05:56  brokentoy
+
+	* lib/wx/keyword_defs.rb, swig/classes/FileDialog.i: Add missing
+	  FD_DEFAULT_STYLE, use in corrected keyword defs for FileDialog
+
+2009-02-28 14:01  eumario
+
+	* swig/classes/DataFormat.i: Minor patch to
+	  static_cast<wxDataFormatId>(NUM2INT($input));
+
+2009-02-27 22:33  brokentoy
+
+	* .: Created wxRuby 2.0 stable branch
+
